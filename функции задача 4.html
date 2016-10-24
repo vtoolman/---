@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<script>
+    var x = +prompt("Введите число", "0");
+    var n = +prompt("Введите степень","0");
+    var res;
+
+    function pow(x,n){
+        res = x;
+        if (x >= 1 && n >= 1){
+            for(i=1; i<n; i++){
+              res *= x;
+            }
+        }
+        alert(res);
+    }
+
+    pow(x,n);
+
+</script>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="index.css">
+    <script>
+        document.onclick = function(e) { // выводит текущие координаты при клике
+            document.getElementById('coords').innerHTML = e.clientX + ':' + e.clientY;
+        };
+    </script>
+</head>
+
+<body>
+
+Кликните на любое место, чтобы получить координаты относительно окна.
+<br> Это для удобства тестирования, чтобы проверить результат, который вы получите из DOM.
+<br>
+<div id="coords">(координаты появятся тут)</div>
+
+
+<div id="field">
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+</div>
+
+
+<div class="triangle-right" style="left:-20px;top:-176px">1</div>
+<div class="triangle-right" style="left:-10px;top:-178px">3</div>
+<div class="triangle-right" style="left:190px;top:-40px">4</div>
+<div class="triangle-right" style="left:200px;top:-42px">2</div>
+
+
+<script>
+    var field = document.getElementById('field');
+
+    var coords = field.getBoundingClientRect();
+
+    var first = {one:coords.left, two:coords.top};
+
+    alert(first.one + ' ' + first.two);
+
+    var second = {one:coords.left + field.clientLeft, two:coords.top + field.clientTop};
+
+    alert(second.one + ' ' + second.two);
+
+    var third = {one:coords.left + field.clientLeft + field.clientWidth, two:coords.top + field.clientTop + field.clientHeight};
+
+    alert(third.one + ' ' + third.two);
+
+    var fourth = {one:coords.left + field.offsetWidth, two:coords.top + field.offsetHeight};
+
+    alert(fourth.one + ' ' + fourth.two);
+</script>
+
+</body>
+
+</html>

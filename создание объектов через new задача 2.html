@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Павел Бельский</title>
+</head>
+<script>
+
+    function Calculator(){
+
+        this.read = function(){
+            this.firstValue = +prompt('Enter first value?', '');
+            this.secondValue = +prompt('Enter second value?', '');
+        };
+
+        this.sum = function(){
+            return this.firstValue + this.secondValue;
+        };
+
+        this.mul = function(){
+            return this.firstValue * this.secondValue;
+        }
+    }
+
+    var calculator = new Calculator();
+    calculator.read();
+
+    alert( "Сумма=" + calculator.sum() );
+    alert( "Произведение=" + calculator.mul() );
+
+</script>
+<body>
+
+</body>
+</html>

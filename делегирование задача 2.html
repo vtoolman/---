@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+
+        li span:hover{
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .hovered{
+            display: none;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<ul class="tree">
+    <li><span>Животные</span>
+        <ul>
+            <li><span>Млекопитающие</span>
+                <ul>
+                    <li><span>Коровы</span></li>
+                    <li><span>Ослы</span></li>
+                    <li><span>Собаки</span></li>
+                    <li><span>Тигры</span></li>
+                </ul>
+            </li>
+            <li><span>Другие</span>
+                <ul>
+                    <li><span>Змеи</span></li>
+                    <li><span>Птицы</span></li>
+                    <li><span>Ящерицы</span></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li><span>Рыбы</span>
+        <ul>
+            <li><span>Аквариумные</span>
+                <ul>
+                    <li><span>Гуппи</span></li>
+                    <li><span>Скалярии</span></li>
+                </ul>
+
+            </li>
+            <li><span>Морские</span>
+                <ul>
+                    <li><span>Морская форель</span></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<script>
+
+    var tree = document.body.querySelector('ul');
+
+    tree.onclick = function(e){
+        var target = e.target;
+
+        var li = target.closest('li');
+        var ul = li.getElementsByTagName('ul')[0];
+
+        if(target.tagName === 'SPAN'){
+            ul.classList.toggle('hovered');
+        }
+    }
+
+</script>
+
+</body>
+
+</html>

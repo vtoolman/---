@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            height: 2000px;
+            /* подсказка должна работать независимо от прокрутки */
+        }
+
+        span{
+            border: 1px solid darkgrey;
+            border-radius: 2px;
+            font-style: italic;
+            box-shadow: 2px 2px 2px 2px lightgray;
+            padding: 10px;
+            position: absolute;
+            background: white;
+            text-align: center;
+
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+<p>ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя</p>
+<p>ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя</p>
+
+<button data-tooltip="подсказка длиннее, чем элемент">Короткая кнопка</button>
+<button data-tooltip="HTML<br>подсказка">Ещё кнопка</button>
+
+<p>Прокрутите страницу, чтобы ссылки были вверху и проверьте, правильно ли показываются подсказки.</p>
+
+
+<script>
+
+    var span = document.createElement('span');
+
+    document.onmouseover = function(e) {
+        var target = e.target;
+        var targetCoords = target.getBoundingClientRect();
+
+        if(e.target.hasAttribute('data-tooltip')){
+            document.body.appendChild(span);
+            span.innerHTML = target.dataset.tooltip;
+            span.style.left = targetCoords.left + 'px';
+            if(targetCoords.top < 0) {
+                span.style.top = targetCoords.top + pageYOffset + 30 + 'px';
+            } else {
+
+                span.style.top = targetCoords.top  + pageYOffset - 60 + 'px';
+            }
+        }
+    }
+
+
+    document.onmouseout = function(e){
+        var target = e.target;
+
+        if(e.target.hasAttribute('data-tooltip')){
+            document.body.removeChild(span);
+        }
+    }
+
+</script>
+
+</body>
+
+</html>
