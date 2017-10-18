@@ -2,13 +2,7 @@
 //некоторые задачи из учебника javascript.ru
 
 
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<script>
+
 
     var head = {
         glasses: 1
@@ -34,7 +28,4 @@
     alert(bed.glasses)
     alert(table.money)
 
-</script>
-<body>
 
-</body>
