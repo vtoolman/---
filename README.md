@@ -1,40 +1,37 @@
-/*некоторые задачи из учебника javascript.ru*/
+//некоторые задачи из учебника javascript.ru
+
+/*Напишите полифилл для метода remove для старых браузеров.
+
+Вызов elem.remove():
+
+Если у elem нет родителя – ничего не делает.
+Если есть – удаляет элемент из родителя.*/
 
 <!DOCTYPE html>
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>Павел Бельский</title>
 </head>
-<script>
-
-    var head = {
-        glasses: 1
-    };
-
-    var table = {
-        pen: 3,
-        __proto__: head
-    };
-
-    var bed = {
-        sheet: 1,
-        pillow: 2,
-        __proto__: table
-    };
-
-    var pockets = {
-        money: 2000,
-        __proto__: bed
-    };
-
-    alert(pockets.pen)
-    alert(bed.glasses)
-    alert(table.money)
-
-</script>
 <body>
+<div>Это</div>
+<div>Все</div>
+<div>Элементы DOM</div>
 
+<script>
+    Element.prototype.remove = function() {
+        if (this.parentNode !== null){
+            this.parentNode.removeChild(this);
+        }
+    }
+
+    var elem = document.body.children[0];
+
+    elem.remove(); // <-- вызов должен удалить элемент
+</script>
 </body>
 </html>
+
+
+
 
